@@ -50,26 +50,27 @@
         </main>
     </section>
     <hr>
+    <!-- Change this section back to your original layout -->
     <section class="display-section flex flex-col justify-center align-center w-full m-auto p-4 gap-4">
         <h2 class="text-2xl font-bold text-center p-1 pb-4">Registered Students</h2>
         <main class="student-display flex flex-col justify-center align-center w-full m-auto p-4 border-2 flex-basis-1/2">
-            <div class="student-list flex flex-col w-full p-2 m-2">
+            <div class="flex flex-col w-full max-w-full p-2 m-2 overflow-x-auto max-h-[100px] overflow-y-auto">
                 <!-- Student entries will be dynamically added here -->
-                 <table>
+                <table class="w-full border-collapse">
                     <thead>
-                        <tr>
+                        <tr class="w-full">
                             <th class="border-2 p-2 w-1/5">Name</th>
                             <th class="border-2 p-2 w-1/5">Student ID</th>
                             <th class="border-2 p-2 w-2/5">Email</th>
                             <th class="border-2 p-2 w-1/5">Contact Number</th>
-                            <th class="border-2 p-2 w-1/5">Edit</th>
-                            <th class="border-2 p-2 w-1/5">Delete</th>
+                            <th class="border-2 p-2 w-1/12">Edit</th>
+                            <th class="border-2 p-2 w-1/12">Delete</th>
                         </tr>
                     </thead>
                     <tbody id="student-list-entries" class="student-entries">
                         <!-- Student entries will be populated here by JavaScript -->
                     </tbody>
-                 </table>
+                </table>
             </div>
         </main>
     </section>

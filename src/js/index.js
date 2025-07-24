@@ -84,12 +84,12 @@ function displayStudents() {
         <td class="border-2 p-2">${student.email}</td>
         <td class="border-2 p-2">${student.contactNumber}</td>
         <td class="border-2 p-2">
-          <button onclick="editStudent(${index})" class="bg-blue-500 text-white px-2 py-1 rounded">
+          <button onclick="editStudent(${index})" class="  px-2 py-1 rounded">
             <i class="fas fa-edit"></i> Edit
           </button>
         </td>
         <td class="border-2 p-2">
-          <button onclick="deleteStudentFromList(${index})" class="bg-red-500 text-white px-2 py-1 rounded">
+          <button onclick="deleteStudentFromList(${index})" class=" px-2 py-1 rounded">
             <i class="fas fa-trash"></i> Delete
           </button>
         </td>
@@ -146,7 +146,7 @@ function addClearAllButton() {
   const section = document.querySelector('.display-section');
   const clearButton = document.createElement('button');
   clearButton.textContent = 'Clear All Students';
-  clearButton.className = 'bg-red-600 text-white px-4 py-2 rounded mt-4';
+  clearButton.className = 'bg-red-600 w-[200px] text-white px-4 py-2 rounded mt-4 mx-auto';
   clearButton.onclick = function() {
     if (confirm('Are you sure you want to delete all students?')) {
       clearAllStudents();
