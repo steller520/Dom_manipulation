@@ -1,4 +1,4 @@
-// Student data management with localStorage - BACKUP FILE
+// Student data management with localStorage 
 
 // Save student data to localStorage
 function saveStudent(student) {
