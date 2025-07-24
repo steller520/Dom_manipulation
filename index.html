@@ -4,55 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Title for clarity -->
+    <title>Student Registration System</title>
+    <!-- Link to external fontawesome for icons -->
+    <script src="https://kit.fontawesome.com/a2f664d162.js" crossorigin="anonymous"></script>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="src/css/style.css">
-    <script src=""></script>
+    <!-- Link to external JavaScript file -->
+    <script src="src/js/index.js" defer></script>
 </head>
 
 <body>
     <header class="header flex justify-center align-center border-2">
-        <h1 class="header-title text-4xl p-2 m-2"><span class="font-bold text-red-700">Student</span> Registration
+        <h1 class="header-title text-2xl sm:text-2xl md:text-3xl lg:text-4xl p-2 m-2"><span class="font-bold text-red-700">Student</span> Registration
             System</h1>
     </header>
+    <!-- Registration Form Section -->
     <section>
-        <main class="main flex flex-col justify-center align-center w-1/2 m-auto p-4">
+        <!-- Main container for the registration form -->
+        <main class="main flex flex-col justify-center align-center w-fit sm:w-1/2 m-auto p-4">
             <form action="" class="registration-form flex flex-col text-center p-4 m-4 border-2">
-                <div
-                    class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center items-center overflow-hidden">
-                    <label for="name " class="pr-1">Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name"
-                        class="input-field">
+                <!-- Name input field -->
+                <div class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center items-center overflow-hidden">
+                    <label for="name" class="name pr-1">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name" class="input-field">
                 </div>
-
-                <div class="form-group border-2 p-2 m-2 w-auto flex justify-center ">
-                    <label for="id" class="pr-1">Student ID:</label>
-                    <input type="text" id="id" name="id" required placeholder="Enter your student ID"
-                        class="input-field">
+                <!-- Student ID input field -->
+                <div class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center">
+                    <label for="id" class="student-id pr-1">Student ID:</label>
+                    <input type="text" id="id" name="id" required placeholder="Enter your student ID" class="input-field">
                 </div>
-
-                <div class="form-group border-2 p-2 m-2 w-auto flex justify-center ">
-                    <label for="email" class="pr-1">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email"
-                        class="input-field">
+                <!-- Email input field -->
+                <div class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center">
+                    <label for="email" class="email pr-1">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email" class="input-field">
                 </div>
-
-                <div class="form-group border-2 p-2 m-2 w-auto flex justify-center ">
-                    <label for="contact" class="pr-1">Contact Number:</label>
-                    <input type="tel" id="contact" name="contact" required placeholder="Enter your contact number"
-                        class="input-field">
+                <!-- Contact Number input field -->
+                <div class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center">
+                    <label for="contact" class="contact-number pr-1">Contact Number:</label>
+                    <input type="tel" id="contact" name="contact" required placeholder="Enter your contact number" class="input-field">
                 </div>
-
+                <!-- Submit button -->
                 <button type="submit" class="submit-button border-2 p-1 m-auto w-1/4 rounded-2xl">Register</button>
-
             </form>
         </main>
     </section>
     <hr>
-    <section class="display-section flex flex-col justify-center align-center w-1/2 m-auto p-4 gap-4">
+    <section class="display-section flex flex-col justify-center align-center w-full m-auto p-4 gap-4">
         <h2 class="text-2xl font-bold text-center p-1 pb-4">Registered Students</h2>
         <main class="student-display flex flex-col justify-center align-center w-full m-auto p-4 border-2 flex-basis-1/2">
             <div class="student-list flex flex-col w-full p-2 m-2">
                 <!-- Student entries will be dynamically added here -->
+                 <table>
+                    <thead>
+                        <tr>
+                            <th class="border-2 p-2 w-1/5">Name</th>
+                            <th class="border-2 p-2 w-1/5">Student ID</th>
+                            <th class="border-2 p-2 w-2/5">Email</th>
+                            <th class="border-2 p-2 w-1/5">Contact Number</th>
+                            <th class="border-2 p-2 w-1/5">Edit</th>
+                            <th class="border-2 p-2 w-1/5">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-list-entries" class="student-entries">
+                        <!-- Student entries will be populated here by JavaScript -->
+                    </tbody>
+                 </table>
             </div>
         </main>
     </section>
