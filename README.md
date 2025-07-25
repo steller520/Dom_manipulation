@@ -95,15 +95,6 @@ Dom_manipulation/
 
 ---
 
-## 📝 Improvements & TODO
-
-- Improve accessibility (ARIA labels, keyboard navigation)
-- More informative error messages
-- Add project logo or user avatars
-- Expand documentation and add GIFs/screenshots
-
----
-
 ## 📃 License
 
 This project is licensed under the Internshala License.
