@@ -2,95 +2,249 @@
 <html lang="en">
 
 <head>
+    <!-- SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple student registration system to add, view, and manage student records.">
+    <meta name="keywords" content="student registration, student management, local database, form">
+    
     <!-- Title for clarity -->
     <title>Student Registration System</title>
+
+    <!-- External Resources -->
     <!-- Link to external fontawesome for icons -->
     <script src="https://kit.fontawesome.com/a2f664d162.js" crossorigin="anonymous"></script>
     <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="src/css/style.css">
     <!-- Link to external JavaScript file -->
     <script src="src/js/index.js" defer></script>
+    
+    <!-- Fonts and Icons -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Lora:ital,wght@1,400..700&display=swap" rel="stylesheet">
+    
+    <!-- PWA and Favicon Files -->
+    <link rel="apple-touch-icon" sizes="180x180" href="src/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/favicons/favicon-16x16.png">
+    <link rel="manifest" href="src/favicons/site.webmanifest">
 </head>
 
 <body>
-    <header class="header flex justify-center align-center border-2">
-        <h1 class="header-title text-2xl sm:text-2xl md:text-3xl lg:text-4xl p-2 m-2"><span
-                class="font-bold text-red-700">Student</span> Registration
-            System</h1>
+    <!-- ====================================== -->
+    <!-- MAIN APPLICATION LAYOUT START         -->
+    <!-- ====================================== -->
+    
+    <!-- 1. HEADER - Modern Blue Gradient -->
+    <header class="header flex flex-col justify-center items-center border-b-2 border-blue-300 p-4 m-2 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100">
+
+        <!-- Main Title with Custom Font -->
+        <h1 class="header-title font-medium bg-gradient-to-r from-blue-600 to-purple-600 text-center rounded-3xl px-2 text-2xl sm:text-2xl sm:w-full md:text-3xl md:w-full lg:text-4xl p-2 m-2 lg:w-4/6"
+            style="font-family: 'Bitcount Single', monospace;">
+            <!-- Computer Icon -->
+            <i class="fa-solid fa-computer" style="font-size: 2.3rem;"></i>
+            <!-- Highlighted Letters for Brand Recognition -->
+            <span class="font-bold text-red-700 text-5xl"> S</span>tudent
+            <span class="font-bold text-red-700 text-5xl">R</span>egistration
+            <span class="font-bold text-red-700 text-5xl">S</span>ystem
+        </h1>
+
+        <!-- Navigation Menu -->
+        <nav class="navigation mt-4 mb-2">
+            <div class="nav-container flex flex-wrap justify-center gap-4">
+                <!-- Register Button - Links to Form Section -->
+                <a href="#registration-section" class="nav-link bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center"
+                   style="font-family: 'Bitcount Single', monospace;">
+                    <i class="fas fa-user-plus mr-2"></i>REGISTER STUDENT
+                </a>
+
+                <!-- View Button - Links to Table Section -->
+                <a href="#display-section" class="nav-link bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center"
+                   style="font-family: 'Bitcount Single', monospace;">
+                    <i class="fas fa-table mr-2"></i>VIEW STUDENTS
+                </a>
+
+                <!-- Clear All Button - Destructive Action with Confirmation -->
+                <button onclick="clearAllStudentsWithConfirm()" class="nav-link bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center"
+                        style="font-family: 'Bitcount Single', monospace;">
+                    <i class="fas fa-trash-alt mr-2"></i>CLEAR ALL
+                </button>
+            </div>
+        </nav>
+
+        <!-- User Instructions Panel -->
+        <div class="instructions bg-gradient-to-r from-blue-50 to-indigo-100 rounded-lg p-4 mt-4 max-w-4xl mx-auto border border-blue-200">
+            <!-- Instructions Title -->
+            <h2 class="text-lg font-semibold text-blue-800 mb-3 text-center" style="font-family: 'Lora', serif;">
+                <i class="fas fa-info-circle mr-2"></i>How to Use This System
+            </h2>
+
+            <!-- 4-Step Process Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+                <!-- Process Step 1: Form Input -->
+                <div class="instruction-item text-center p-3 bg-white rounded border border-blue-100">
+                    <div class="step-number bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2 font-bold">1</div>
+                    <h4 class="font-semibold text-gray-800 mb-1" style="font-family: 'Lora', serif;">Fill the Form</h4>
+                    <p class="text-gray-600 text-xs">Enter student name, ID (6-10 digits), email, and contact number (10-15 digits)</p>
+                </div>
+
+                <!-- Process Step 2: Form Submission -->
+                <div class="instruction-item text-center p-3 bg-white rounded border border-blue-100">
+                    <div class="step-number bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2 font-bold">2</div>
+                    <h4 class="font-semibold text-gray-800 mb-1" style="font-family: 'Lora', serif;">Click Register</h4>
+                    <p class="text-gray-600 text-xs">Submit the form to add the student to your local database</p>
+                </div>
+
+                <!-- Process Step 3: Data Viewing -->
+                <div class="instruction-item text-center p-3 bg-white rounded border border-blue-100">
+                    <div class="step-number bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2 font-bold">3</div>
+                    <h4 class="font-semibold text-gray-800 mb-1" style="font-family: 'Lora', serif;">View Students</h4>
+                    <p class="text-gray-600 text-xs">See all registered students in the table below</p>
+                </div>
+
+                <!-- Process Step 4: Data Management -->
+                <div class="instruction-item text-center p-3 bg-white rounded border border-blue-100">
+                    <div class="step-number bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2 font-bold">4</div>
+                    <h4 class="font-semibold text-gray-800 mb-1" style="font-family: 'Lora', serif;">Edit or Delete</h4>
+                    <p class="text-gray-600 text-xs">Use Edit/Delete buttons to manage student records</p>
+                </div>
+            </div>
+
+            <!-- Validation Rules and Important Information -->
+            <div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded">
+                <h4 class="font-semibold text-yellow-800 mb-2" style="font-family: 'Lora', serif;">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>Important Notes:
+                </h4>
+                <!-- Validation Requirements List -->
+                <ul class="text-xs text-yellow-700 space-y-1">
+                    <li>• <strong>Student ID:</strong> Must be 6-10 digits only (no letters or special characters)</li>
+                    <li>• <strong>Contact Number:</strong> Must be 10-15 digits only (no hyphens, spaces, or brackets)</li>
+                    <li>• <strong>Data Storage:</strong> All information is stored locally in your browser</li>
+                    <li>• <strong>Unique Records:</strong> Student ID and email must be unique for each student</li>
+                </ul>
+            </div>
+        </div>
     </header>
-    <!-- Registration Form Section -->
-    <section>
-        <!-- Main container for the registration form -->
-        <main class="main flex flex-col justify-center align-center w-fit sm:w-1/2 m-auto p-4">
-            <form action="" class="registration-form flex flex-col text-center p-4 m-4 border-2">
-                <!-- Name input field -->
-                <div
-                    class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center items-center overflow-hidden">
+
+    <!-- ====================================== -->
+    <!-- REGISTRATION SECTION START            -->
+    <!-- ====================================== -->
+    
+    <!-- 2. REGISTRATION SECTION - Warm Orange Theme -->
+    <section id="registration-section" class="scroll-mt-4 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-100 py-6">
+        <!-- Section Header with Icon -->
+        <div class="section-header bg-gradient-to-r from-orange-100 to-amber-200 p-3 mb-4 border-l-4 border-orange-500">
+            <h2 class="text-xl font-bold text-blue-800 text-center" style="font-family: 'Bitcount Single', monospace;">
+                <i class="fas fa-user-plus mr-2"></i>STUDENT REGISTRATION FORM
+            </h2>
+        </div>
+
+        <!-- Form Container - Responsive Width -->
+        <main class="main flex flex-col gap-3 justify-center align-center w-full md:w-2/4 m-auto p-4">
+            <!-- HTML5 Form with Validation -->
+            <form action="" class="registration-form flex flex-col text-center p-4 m-4 border-2 rounded-2xl bg-white shadow-lg">
+                
+                <!-- Full Name Input Field -->
+                <div class="form-group border-2 p-2 m-2 w-full flex flex-wrap justify-center rounded-4xl items-center bg-amber-200 lg:w-4/5 mx-auto">
                     <label for="name" class="name pr-1">Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name"
-                        class="input-field">
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name" class="input-field">
                 </div>
-                <!-- Student ID input field -->
-                <div class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center">
+                
+                <!-- Student ID Input - Numeric Only, 6-10 Digits -->
+                <div class="form-group border-2 p-2 m-2 w-full flex flex-wrap rounded-4xl justify-center items-center bg-amber-200 lg:w-4/5 mx-auto">
                     <label for="id" class="student-id pr-1">Student ID:</label>
-                    <input type="text" id="id" name="id" required placeholder="Enter your student ID"
-                        class="input-field">
+                    <input type="text" id="id" name="id" required placeholder="Enter your student ID" class="input-field" 
+                           minlength="6" maxlength="10" pattern="[0-9]{6,10}" title="Please enter 6-10 digits only">
                 </div>
-                <!-- Email input field -->
-                <div class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center">
+                
+                <!-- Email Input - Built-in HTML5 Validation -->
+                <div class="form-group border-2 p-2 m-2 w-full flex flex-wrap rounded-4xl justify-center items-center bg-amber-200 lg:w-4/5 mx-auto">
                     <label for="email" class="email pr-1">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email"
-                        class="input-field">
+                    <input type="email" id="email" name="email" required placeholder="Enter your email" class="input-field">
                 </div>
-                <!-- Contact Number input field -->
-                <div class="form-group border-2 p-2 m-2 w-auto flex flex-wrap justify-center">
+                
+                <!-- Contact Number - Tel Input with Pattern Validation -->
+                <div class="form-group border-2 p-2 m-2 w-full flex flex-wrap rounded-4xl justify-center items-center bg-amber-200 lg:w-4/5 mx-auto">
                     <label for="contact" class="contact-number pr-1">Contact Number:</label>
-                    <input type="tel" id="contact" name="contact" required placeholder="Enter your contact number"
-                        class="input-field">
+                    <input type="tel" id="contact" name="contact" required placeholder="Enter 10-15 digit contact number" 
+                           class="input-field" pattern="[0-9]{10,15}" maxlength="15" minlength="10"
+                           title="Please enter 10-15 digits only (no hyphens, spaces, or special characters)"
+                           inputmode="numeric" autocomplete="tel">
                 </div>
-                <!-- Submit button -->
-                <button type="submit" class="submit-button border-2 p-1 m-auto w-1/4 rounded-2xl">Register</button>
+                
+                <!-- Form Submission Button -->
+                <button type="submit" class="submit-button border-2 p-1 m-auto w-[120px] rounded-2xl bg-red-500 hover:bg-red-700 text-white">
+                    Register
+                </button>
             </form>
         </main>
     </section>
-    <hr>
-    <!-- Change this section back to your original layout -->
-    <section class="display-section flex flex-col justify-center align-center w-full m-auto p-4 gap-4">
-        <h2 class="text-2xl font-bold text-center p-1 pb-4">Registered Students</h2>
-        <main
-            class="student-display flex flex-col justify-center align-center w-full m-auto p-4 border-2 flex-basis-1/2">
+
+    <!-- Visual Section Divider -->
+    <hr class="my-8 border-t-2 border-gray-300">
+
+    <!-- ====================================== -->
+    <!-- DATA DISPLAY SECTION START            -->
+    <!-- ====================================== -->
+    
+    <!-- 3. DISPLAY SECTION - Cool Green Theme -->
+    <section id="display-section" class="display-section flex flex-col justify-center align-center w-full m-auto p-4 gap-4 scroll-mt-4 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-100 py-6">
+        
+        <!-- Section Header with Database Icon -->
+        <div class="section-header bg-gradient-to-r from-green-100 to-emerald-200 p-3 mb-4 border-l-4 border-green-500">
+            <h2 class="text-xl font-bold text-green-800 text-center" style="font-family: 'Bitcount Single', monospace;">
+                <i class="fas fa-table mr-2"></i>REGISTERED STUDENTS DATABASE
+            </h2>
+        </div>
+
+        <!-- Table Container with Responsive Design -->
+        <main class="student-display flex flex-col justify-center align-center w-full m-auto p-4 border-2 flex-basis-1/2 bg-white rounded-xl shadow-lg">
+            
+            <!-- Scrollable Table Wrapper -->
             <div class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                <!-- Horizontal and Vertical Scroll Container -->
                 <div class="overflow-x-auto max-h-[300px] overflow-y-auto">
+                    
+                    <!-- Student Data Table -->
                     <table class="w-full border-collapse">
-                        <thead class="bg-blue-50 sticky top-0 z-20 shadow-sm">
+                        <!-- Table Headers - Sticky for Scroll -->
+                        <thead class="bg-gradient-to-r from-green-100 to-emerald-100 sticky top-0 z-20 shadow-sm">
                             <tr>
+                                <!-- Student Information Columns -->
                                 <th class="border-b-2 border-gray-300 p-3 text-left font-semibold bg-blue-50">Name</th>
-                                <th class="border-b-2 border-gray-300 p-3 text-left font-semibold bg-blue-50">Student ID
-                                </th>
-                                <th class="border-b-2 border-gray-300 p-3 text-left font-semibold bg-blue-50">Email</th>
-                                <th class="border-b-2 border-gray-300 p-3 text-left font-semibold bg-blue-50">Contact
-                                    Number</th>
-                                <th class="border-b-2 border-gray-300 p-3 text-center font-semibold bg-blue-50">Edit
-                                </th>
-                                <th class="border-b-2 border-gray-300 p-3 text-center font-semibold bg-blue-50">Delete
-                                </th>
+                                <th class="border-b-2 border-gray-300 p-3 text-left font-semibold bg-blue-50">Student ID</th>
+                                <th class="border-b-2 border-gray-300 p-3 text-center font-semibold bg-blue-50">Email</th>
+                                <th class="border-b-2 border-gray-300 p-3 text-center font-semibold bg-blue-50">Contact Number</th>
+                                <!-- Action Columns -->
+                                <th class="border-b-2 border-gray-300 p-3 text-center font-semibold bg-blue-50">Edit</th>
+                                <th class="border-b-2 border-gray-300 p-3 text-center font-semibold bg-blue-50">Delete</th>
                             </tr>
                         </thead>
+                        
+                        <!-- Dynamic Content Area - Populated by JavaScript -->
                         <tbody id="student-list-entries" class="student-entries bg-white">
-                            <!-- Student entries will be populated here by JavaScript -->
+                            <!-- JavaScript will dynamically insert student rows here -->
+                            <!-- Each row will contain: Name, ID, Email, Contact, Edit Button, Delete Button -->
                         </tbody>
                     </table>
                 </div>
             </div>
         </main>
     </section>
-    <footer class="footer flex justify-center align-center border-2 p-2">
-        <p class="text-center">© 2023 Student Registration System</p>
+
+    <!-- ====================================== -->
+    <!-- FOOTER SECTION                        -->
+    <!-- ====================================== -->
+    
+    <!-- 4. FOOTER - Neutral Gray Theme -->
+    <footer class="footer flex justify-center align-center border-2 p-2 bg-gradient-to-r from-gray-100 to-slate-200">
+        <!-- Copyright Information -->
+        <p class="text-center">© 2025 Student Registration System</p>
     </footer>
 
+    <!-- ====================================== -->
+    <!-- END OF MAIN APPLICATION LAYOUT        -->
+    <!-- ====================================== -->
 
 </body>
-
 </html>
