@@ -40,6 +40,12 @@ const submitButton = document.querySelector('.submit-button');
 form?.addEventListener('submit', function(e) {
   e.preventDefault(); // Prevent page refresh
   handleSubmit();
+  const targetElement = document.getElementById('display-section');
+  // Scroll to the display section after submission
+  targetElement.scrollIntoView({ 
+    behavior: 'smooth',
+    block: 'start'
+  });
 });
 
 // Add validation functions at the top of your file
@@ -195,6 +201,12 @@ function editStudent(index) {
     displayStudents();
     
     alert('Student data loaded for editing. Make changes and click Register.');
+    const targetElement = document.getElementById('registration-section');
+    // Scroll to the form section for editing
+    targetElement.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    }); 
   }
 }
 
