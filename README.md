@@ -67,10 +67,16 @@ A web application for registering, editing, and deleting student records. Built 
 
 ```
 Dom_manipulation/
+├── src/
+│   ├── css/
+│   │   └── style.css
+│   ├── favicons/
+│   │   └── favicon.ico
+│   └── js/
+│       └── script.js
 ├── index.html
-├── style.css
-├── script.js
 └── README.md
+
 ```
 
 ---
