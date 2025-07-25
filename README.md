@@ -1,31 +1,37 @@
 # Student Registration System
 
-A simple web application for registering students and managing their information. Built with HTML, Tailwind CSS, and JavaScript, with persistent storage via localStorage.
+A web application for registering, editing, and deleting student records. Built with semantic HTML, custom CSS, and vanilla JavaScript, the system persists data using localStorage—even after the page is refreshed.
 
 ---
 
 ## 🚀 Features
 
-- **Register new students** with name, student ID, email, and contact number
-- **Edit or delete existing student records**
-- **Clear all student records** at once
-- **Student records are persisted** in browser localStorage
-- **Dynamic vertical scrollbar** for student list (scrolls when list grows)
-- **Responsive design** using Tailwind CSS
-- **Sticky table header** for easier navigation
+- **Register new students** with Name, Student ID, Email, and Contact Number
+- **Edit and delete student records** directly in the UI
+- **Clear all student records**
+- **Persistent storage** via browser localStorage
+- **Input validation:**
+  - Student Name: Only characters
+  - Student ID & Contact No.: Only numbers
+  - Email: Valid email format
+  - No empty or duplicate entries
+- **Responsive design** for all devices
+- **Dynamic vertical scrollbar** appears when the list grows
+- **Accessible and semantic HTML structure**
+- **Well-commented, organized code**
 
 ---
 
 ## 📸 Demo
 
-![Student List Scroll Example](demo-screenshot.png) <!-- Replace with your actual screenshot file if available -->
+![Student List Scroll Example](demo-screenshot.png) <!-- Replace with actual screenshot if available -->
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML5**
-- **Tailwind CSS**
+- **HTML5** (semantic tags)
+- **CSS3** (custom styling)
 - **JavaScript (Vanilla)**
 - **localStorage** (for persistence)
 
@@ -43,16 +49,17 @@ A simple web application for registering students and managing their information
 2. **Open `index.html` in your browser**
 
     - No build tools or server required
-    - All dependencies are included via CDN or in the repo
+    - All dependencies are included
 
 ---
 
 ## 🎨 UI Highlights
 
-- Clean layout with Tailwind utility classes
-- Table shows all student details with Edit/Delete actions
-- Scrollbar appears if the list exceeds 300px in height
-- Table header remains visible on scroll
+- Clean, modern layout
+- Form and table sections are visually separated for clarity
+- Table shows all student details, with Edit/Delete actions
+- Scrollbar appears if the list exceeds a set height
+- Table header remains visible during scroll
 
 ---
 
@@ -61,20 +68,29 @@ A simple web application for registering students and managing their information
 ```
 Dom_manipulation/
 ├── index.html
-├── src/
-│   ├── css/
-│   │   ├── style.css
-│   │   └── input.css
-│   └── js/
-│       └── index.js
+├── style.css
+├── script.js
 └── README.md
 ```
 
 ---
 
+## 📝 Assignment Checklist
+
+- [x] Basic HTML structure with meta tags and meaningful titles
+- [x] Catchy header and system description
+- [x] Form with all required input fields and validation
+- [x] Organized display section for student records
+- [x] Custom CSS styling for visual appeal
+- [x] JavaScript for add/edit/delete, validation, persistence, scrollbar
+- [x] Well-documented code with comments
+- [x] Semantic HTML for accessibility
+- [x] Uploaded to GitHub
+
+---
+
 ## 📝 Improvements & TODO
 
-- Add advanced input validation (email format, numbers only, etc.)
 - Improve accessibility (ARIA labels, keyboard navigation)
 - More informative error messages
 - Add project logo or user avatars
