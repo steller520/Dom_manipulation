@@ -145,30 +145,52 @@
             <form action="" class="registration-form flex flex-col text-center p-4 m-4 border-2 rounded-2xl bg-white shadow-lg">
                 
                 <!-- Full Name Input Field -->
-                <div class="form-group border-2 p-2 m-2 w-full flex flex-wrap justify-center rounded-4xl items-center bg-amber-200 lg:w-4/5 mx-auto">
-                    <label for="name" class="name pr-1">Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name" class="input-field">
+                <div class="form-group border-2 p-3 m-2 w-full flex flex-col lg:flex-row lg:items-center justify-center rounded-lg items-start bg-gradient-to-r from-amber-100 to-amber-200 lg:w-4/5 mx-auto shadow-sm">
+                    <label for="name" class="name font-semibold text-gray-700 mb-2 lg:mb-0 lg:w-1/4 lg:pr-3" style="font-family: 'Lora', serif;">
+                        <i class="fas fa-user mr-1"></i>Full Name:
+                    </label>
+                    <input type="text" id="name" name="name" required 
+                           placeholder="Enter your full name (e.g., John Doe)" 
+                           class="input-field border-2 border-gray-300 rounded-md px-3 py-2 w-full lg:w-3/4 text-left focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors"
+                           minlength="2" maxlength="50"
+                           title="Please enter your full name (2-50 characters)">
                 </div>
                 
-                <!-- Student ID Input - Numeric Only, 6-10 Digits -->
-                <div class="form-group border-2 p-2 m-2 w-full flex flex-wrap rounded-4xl justify-center items-center bg-amber-200 lg:w-4/5 mx-auto">
-                    <label for="id" class="student-id pr-1">Student ID:</label>
-                    <input type="text" id="id" name="id" required placeholder="Enter your student ID" class="input-field" 
-                           minlength="6" maxlength="10" pattern="[0-9]{6,10}" title="Please enter 6-10 digits only">
+                <!-- Student ID Input -->
+                <div class="form-group border-2 p-3 m-2 w-full flex flex-col lg:flex-row lg:items-center justify-center rounded-lg items-start bg-gradient-to-r from-amber-100 to-amber-200 lg:w-4/5 mx-auto shadow-sm">
+                    <label for="id" class="student-id font-semibold text-gray-700 mb-2 lg:mb-0 lg:w-1/4 lg:pr-3" style="font-family: 'Lora', serif;">
+                        <i class="fas fa-id-card mr-1"></i>Student ID:
+                    </label>
+                    <input type="text" id="id" name="id" required 
+                           placeholder="Enter 6-10 digit ID (e.g., 123456)" 
+                           class="input-field border-2 border-gray-300 rounded-md px-3 py-2 w-full lg:w-3/4 text-left focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors"
+                           minlength="6" maxlength="10" pattern="[0-9]{6,10}"
+                           title="Please enter 6-10 digits only (no letters or special characters)"
+                           inputmode="numeric">
                 </div>
                 
-                <!-- Email Input - Built-in HTML5 Validation -->
-                <div class="form-group border-2 p-2 m-2 w-full flex flex-wrap rounded-4xl justify-center items-center bg-amber-200 lg:w-4/5 mx-auto">
-                    <label for="email" class="email pr-1">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email" class="input-field">
+                <!-- Email Input -->
+                <div class="form-group border-2 p-3 m-2 w-full flex flex-col lg:flex-row lg:items-center justify-center rounded-lg items-start bg-gradient-to-r from-amber-100 to-amber-200 lg:w-4/5 mx-auto shadow-sm">
+                    <label for="email" class="email font-semibold text-gray-700 mb-2 lg:mb-0 lg:w-1/4 lg:pr-3" style="font-family: 'Lora', serif;">
+                        <i class="fas fa-envelope mr-1"></i>Email:
+                    </label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="Enter email (e.g., john@example.com)" 
+                           class="input-field border-2 border-gray-300 rounded-md px-3 py-2 w-full lg:w-3/4 text-left focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors"
+                           title="Please enter a valid email address"
+                           autocomplete="email">
                 </div>
                 
-                <!-- Contact Number - Tel Input with Pattern Validation -->
-                <div class="form-group border-2 p-2 m-2 w-full flex flex-wrap rounded-4xl justify-center items-center bg-amber-200 lg:w-4/5 mx-auto">
-                    <label for="contact" class="contact-number pr-1">Contact Number:</label>
-                    <input type="tel" id="contact" name="contact" required placeholder="Enter 10-15 digit contact number" 
-                           class="input-field" pattern="[0-9]{10,15}" maxlength="15" minlength="10"
-                           title="Please enter 10-15 digits only (no hyphens, spaces, or special characters)"
+                <!-- Enhanced Contact Number Input -->
+                <div class="form-group border-2 p-3 m-2 w-full flex flex-col lg:flex-row lg:items-center justify-center rounded-lg items-start bg-gradient-to-r from-amber-100 to-amber-200 lg:w-4/5 mx-auto shadow-sm">
+                    <label for="contact" class="contact-number font-semibold text-gray-700 mb-2 lg:mb-0 lg:w-1/4 lg:pr-3" style="font-family: 'Lora', serif;">
+                        <i class="fas fa-phone mr-1"></i>Contact:
+                    </label>
+                    <input type="tel" id="contact" name="contact" required 
+                           placeholder="Enter 10-15 digits (e.g., 1234567890)" 
+                           class="input-field border-2 border-gray-300 rounded-md px-3 py-2 w-full lg:w-3/4 text-left focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors"
+                           pattern="[0-9]{10,15}" maxlength="15" minlength="10"
+                           title="Please enter 10-15 digits only (no spaces, hyphens, or special characters)"
                            inputmode="numeric" autocomplete="tel">
                 </div>
                 

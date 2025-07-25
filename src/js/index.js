@@ -87,19 +87,19 @@ function handleSubmit() {
     document.getElementById('name').focus();
     return;
   }
-
+  // Validate student ID
   if (!validateStudentId(studentId)) {
     alert('Invalid Student ID! Please enter 6-10 digits only.');
     document.getElementById('id').focus();
     return;
   }
-
+  // Validate email 
   if (!validateEmail(email)) {
     alert('Invalid email format! Please enter a valid email address.');
     document.getElementById('email').focus();
     return;
   }
-
+  // Validate contact number
   if (!validateContact(contactNumber)) {
     alert('Invalid contact number! Please enter 10-15 digits only.');
     document.getElementById('contact').focus();
