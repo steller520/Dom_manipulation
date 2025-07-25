@@ -24,7 +24,7 @@ A web application for registering, editing, and deleting student records. Built 
 
 ## 📸 Demo
 
-![Student List Scroll Example](demo-screenshot.png) <!-- Replace with actual screenshot if available -->
+![Student List Scroll Example](src/images/image1.png) 
 
 ---
 
@@ -70,8 +70,10 @@ Dom_manipulation/
 ├── src/
 │   ├── css/
 │   │   └── style.css
-│   ├── favicons/
-│   │   └── favicon.ico
+│   ├── images/
+|   |   ├──image1.png  
+|   |   └──favicons/
+│   │        └── favicon.ico
 │   └── js/
 │       └── script.js
 ├── index.html
